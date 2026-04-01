@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="./images/favicon.png">
     <style>
         :root {
             --primary-blue: #2563eb;
@@ -741,7 +741,7 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="reveal">
                     <div class="glow-border rounded-2xl p-1 bg-gradient-to-br from-gray-800 to-gray-900 hover-glow transition-all duration-300">
-                        <img src="images/600x400.jpg" alt="Kaushal Malvi working on laptop" class="w-full h-auto rounded-2xl" loading="lazy">
+                        <img src="./images/600x400.jpg" alt="Kaushal Malvi working on laptop" class="w-full h-auto rounded-2xl" loading="lazy">
                     </div>
                 </div>
                 <div class="reveal">
@@ -954,7 +954,7 @@
                 <div class="flip-card reveal">
                     <div class="flip-card-inner bg-gray-800 p-6 rounded-2xl glow-border">
                         <div class="flip-card-front flex flex-col justify-center items-center text-center">
-                            <img src="images/freelancer.png" alt="Freelancer.com Logo" class="w-10 h-10 mb-3 rounded-full object-cover">
+                            <img src="./images/freelancer.png" alt="Freelancer.com Logo" class="w-10 h-10 mb-3 rounded-full object-cover">
                             <h3 class="text-2xl font-semibold gold-text mb-2">Web Editor</h3>
                             <p class="text-gray-300 text-lg">Freelancer.com</p>
                             <p class="text-gray-400 mt-2">June 2022 - October 2023 (1 year 5 months)</p>
@@ -968,7 +968,7 @@
                 <div class="flip-card reveal">
                     <div class="flip-card-inner bg-gray-800 p-6 rounded-2xl glow-border">
                         <div class="flip-card-front flex flex-col justify-center items-center text-center">
-                            <img src="images/upwork.png" alt="Upwork Logo" class="w-10 h-10 mb-3 rounded-full object-cover">
+                            <img src="./images/upwork.png" alt="Upwork Logo" class="w-10 h-10 mb-3 rounded-full object-cover">
                             <h3 class="text-2xl font-semibold gold-text mb-2">Senior Editor</h3>
                             <p class="text-gray-300 text-lg">Upwork</p>
                             <p class="text-gray-400 mt-2">September 2020 - April 2022 (1 year 8 months)</p>
@@ -1378,14 +1378,14 @@
             if (!heroVideo) return;
             
             const width = window.innerWidth;
-            let videoSrc = 'images/test.mp4'; // Default desktop video
+            let videoSrc = './images/test.mp4'; // Default desktop video
             
             if (width <= 768) {
                 // Mobile
-                videoSrc = 'images/test-mobile.mp4';
+                videoSrc = './images/test-mobile.mp4';
             } else if (width <= 1024) {
                 // Tablet
-                videoSrc = 'images/test-tablet.mp4';
+                videoSrc = './images/test-tablet.mp4';
             }
             // Desktop uses default (test.mp4)
             
@@ -1399,12 +1399,12 @@
                 clearTimeout(resizeTimer);
                 resizeTimer = setTimeout(() => {
                     const newWidth = window.innerWidth;
-                    let newVideoSrc = 'images/test.mp4';
+                    let newVideoSrc = './images/test.mp4';
                     
                     if (newWidth <= 768) {
-                        newVideoSrc = 'images/test-mobile.mp4';
+                        newVideoSrc = './images/test-mobile.mp4';
                     } else if (newWidth <= 1024) {
-                        newVideoSrc = 'images/test-tablet.mp4';
+                        newVideoSrc = './images/test-tablet.mp4';
                     }
                     
                     // Only change if different
