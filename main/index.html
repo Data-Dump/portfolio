@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaushal Malvi | Main Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --primary-purple: #8b5cf6;
+            --primary-gold: #fbbf24;
+            --gold-yellow: #fbbf24;
+            --dark-bg: #0f0f0f;
+            --darker-bg: #050505;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+            color: var(--text-light);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            cursor: none; /* Hide default cursor */
+        }
+        
+        * {
+            cursor: none; /* Hide cursor on all elements */
+        }
+        
+        /* Custom Cursor */
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary-blue);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+            mix-blend-mode: difference;
+        }
+        
+        .custom-cursor.hover {
+            width: 40px;
+            height: 40px;
+            border-color: var(--primary-purple);
+            background: rgba(139, 92, 246, 0.1);
+        }
+        
+        .custom-cursor.click {
+            width: 15px;
+            height: 15px;
+            border-color: var(--primary-gold);
+        }
+        
+        /* Cursor Dot */
+        .cursor-dot {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99998;
+            transform: translate(-50%, -50%);
+            transition: background 0.3s ease, transform 0.1s ease;
+        }
+        
+        .cursor-dot.hover {
+            background: var(--primary-purple);
+            transform: translate(-50%, -50%) scale(1.5);
+        }
+        
+        /* Floating Particles */
+        .cursor-particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99997;
+            opacity: 0.6;
+            animation: particleFade 1.5s ease-out forwards;
+        }
+        
+        @keyframes particleFade {
+            0% {
+                opacity: 0.8;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0) translateY(-30px);
+            }
+        }
+        
+        /* Particle Trail */
+        .particle-trail {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: var(--primary-purple);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99996;
+            opacity: 0.4;
+            animation: trailFade 0.8s ease-out forwards;
+        }
+        
+        @keyframes trailFade {
+            0% {
+                opacity: 0.6;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0);
+            }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+        
+        .gold-text {
+            background: linear-gradient(135deg, var(--primary-gold), #f59e0b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .flip-card {
+                perspective: 1000px;
+                /* Remove fixed height */
+                height: auto;
+        }
+
+        .flip-card-inner {
+                position: relative;
+                width: 100%;
+                min-height: 300px; /* fallback min height */
+                transition: transform 0.8s;
+                transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+                transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                min-height: 100%;
+                backface-visibility: hidden;
+                border-radius: 12px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 1.5rem;
+                text-align: center;
+        }
+
+        .flip-card-back {
+                transform: rotateY(180deg);
+        }
+
+
+        
+        .skill-bar {
+            transition: width 2s ease-in-out;
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-gold {
+            background: linear-gradient(135deg, var(--primary-gold), #f59e0b);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+        }
+        
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
+        }
+        
+        .glow-border {
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.1);
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid var(--primary-blue);
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary-blue) }
+        }
+        
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple));
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        
+        /* Loading Animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .loading {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        /* Improved Card Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .slide-in-up {
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+        
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Improved Mobile Menu */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .mobile-menu.active {
+            max-height: 500px;
+            transition: max-height 0.5s ease-in;
+        }
+        
+        /* Smooth Fade In */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        /* Hover Glow Effect */
+        .hover-glow:hover {
+            box-shadow: 0 0 30px rgba(37, 99, 235, 0.5);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        /* Improved Form Input Focus */
+        input:focus, textarea:focus {
+            transform: scale(1.02);
+            transition: transform 0.2s ease;
+        }
+        
+        /* Certificate Card Styles */
+        .certificate-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .certificate-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .certificate-card:hover::before {
+            left: 100%;
+        }
+        
+        .certificate-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .certificate-card:hover .certificate-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+        
+        /* Certificate Modal */
+        .certificate-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .certificate-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .certificate-modal-content {
+            position: relative;
+            max-width: 95vw;
+            width: 95%;
+            max-height: 90vh;
+            background: var(--dark-bg);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: slideInUp 0.4s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .certificate-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: var(--text-light);
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .certificate-modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+        
+        .certificate-modal-image {
+            width: auto;
+            max-width: calc(95vw - 100px);
+            height: auto;
+            max-height: calc(90vh - 250px);
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .certificate-modal-title {
+            text-align: center;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-light);
+        }
+        
+        .certificate-modal-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .certificate-modal-content {
+                max-width: 98%;
+                width: 98%;
+                padding: 1rem;
+                max-height: 95vh;
+                overflow: hidden;
+            }
+            
+            .certificate-modal-image {
+                max-width: calc(100vw - 60px);
+                max-height: calc(95vh - 200px);
+            }
+            
+            .certificate-modal-close {
+                top: 0.5rem;
+                right: 0.5rem;
+                width: 35px;
+                height: 35px;
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Navbar Scroll Effect */
+        nav {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-20px);
+            transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+        }
+        
+        nav.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        nav.scrolled {
+            background: rgba(0, 0, 0, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.6);
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+        }
+        
+        .back-to-top:active {
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+        }
+        
+        /* New Hero Section Styles - Full Image/Video */
+        .hero-full-image {
+            width: 100%;
+            height: 100vh;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+        
+        .hero-image-wrapper {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Ensure video maintains aspect ratio on all devices */
+        video.hero-full-image {
+            width: 100%;
+            height: 100%;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        /* Logo Styles */
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gold);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--dark-bg);
+            font-size: 1.5rem;
+        }
+        
+        /* Nav Links */
+        .nav-link {
+            color: #d1d5db;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+        
+        .nav-link.active {
+            color: #ffffff;
+        }
+        
+        /* Hero Background Gradient */
+        .hero-bg-gradient {
+            background: #000000;
+            position: relative;
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+        
+        /* Responsive adjustments for different screen sizes */
+        @media (max-width: 1024px) {
+            .hero-full-image {
+                height: 100vh;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-full-image {
+                height: 100vh;
+                width: 100%;
+                min-height: 100vh;
+                object-fit: cover;
+                object-position: center;
+            }
+            
+            .hero-image-wrapper {
+                height: 100vh;
+                min-height: 100vh;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-full-image {
+                height: 100vh;
+                width: 100%;
+                min-height: 100vh;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+        
+        /* Handle landscape orientation on mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero-full-image {
+                height: 100vh;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 bg-black bg-opacity-90 backdrop-blur-md py-4 px-8 transition-all duration-300">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold gradient-text">Kaushal Malvi</div>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#certificates" class="nav-link">Certificates</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="resume.pdf" download class="btn-primary px-4 py-2 rounded-full font-semibold text-white inline-flex items-center gap-2 hover-glow text-sm">
+                    <i class="fas fa-download"></i>
+                    Resume
+                </a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white focus:outline-none transition-transform hover:scale-110">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden">
+            <div class="flex flex-col space-y-4 px-8 py-4 bg-black bg-opacity-95 backdrop-blur-md">
+                <a href="#home" class="text-gray-300 hover:text-white transition-colors py-2 hover:translate-x-2">Home</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition-colors py-2 hover:translate-x-2">About</a>
+                <a href="#skills" class="text-gray-300 hover:text-white transition-colors py-2 hover:translate-x-2">Skills</a>
+                <a href="#education" class="text-gray-300 hover:text-white transition-colors py-2 hover:translate-x-2">Education</a>
+                <a href="#experience" class="text-gray-300 hover:text-white transition-colors py-2 hover:translate-x-2">Experience</a>
+                <a href="#certificates" class="text-gray-300 hover:text-white transition-colors py-2 hover:translate-x-2">Certificates</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition-colors py-2 hover:translate-x-2">Contact</a>
+                <a href="resume.pdf" download class="btn-primary px-4 py-2 rounded-full font-semibold text-white inline-flex items-center gap-2 hover-glow text-sm mt-2">
+                    <i class="fas fa-download"></i>
+                    Download Resume
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen relative overflow-hidden hero-bg-gradient" style="padding-top: 0; margin: 0;">
+        <div class="hero-image-wrapper">
+            <!-- Responsive video: Different videos for different devices -->
+            <!-- Create videos named: test.mp4 (desktop), test-tablet.mp4, test-mobile.mp4 -->
+            <video id="heroVideo" class="hero-full-image" autoplay muted playsinline></video>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 reveal">About <span class="gradient-text">Me</span></h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <div class="glow-border rounded-2xl p-1 bg-gradient-to-br from-gray-800 to-gray-900 hover-glow transition-all duration-300">
+                        <img src="images/600x400.jpg" alt="Kaushal Malvi working on laptop" class="w-full h-auto rounded-2xl" loading="lazy">
+                    </div>
+                </div>
+                <div class="reveal">
+                    <h3 class="text-2xl font-semibold mb-6 gold-text">Crafting Digital Excellence</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        A passionate entrepreneur, trader, and digital creator currently pursuing my higher secondary education. I have successfully built and managed 15+ profitable online ventures, gaining practical experience in digital marketing, e-commerce, finance, and strategic growth.
+                    </p>
+                    <p class="text-gray-300 mb-8 leading-relaxed">
+                        I believe in silent hustle and loud results, letting my work speak for itself. My aim is to continuously learn, grow, and collaborate with like-minded individuals who are driven by curiosity and ambition.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <p class="text-gray-400">Name:</p>
+                            <p class="text-white font-semibold">Kaushal Malvi</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-400">Experience:</p>
+                            <p class="text-white font-semibold">3+ Years</p>
+                        </div>
+                        <div>
+				<p class="text-gray-400">Email:</p>
+				<a href="mailto:kaushalmalvi412@gmail.com" class="text-white font-semibold break-all">
+					  kaushalmalvi412@gmail.com
+				</a>
+			</div>
+
+                        <div>
+                            <p class="text-gray-400">Location:</p>
+                            <p class="text-white font-semibold">Mandsaur, Madhya Pradesh, India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 reveal">My <span class="gradient-text">Skills</span></h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Technical Skills -->
+                <div class="reveal">
+                    <h3 class="text-2xl font-semibold mb-8 gold-text">Technical Expertise</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300 font-medium">Digital Marketing</span>
+                                <span class="text-blue-400 font-semibold">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full" style="width: 0%" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300 font-medium">E-commerce</span>
+                                <span class="text-blue-400 font-semibold">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full" style="width: 0%" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300 font-medium">Trading & Investment</span>
+                                <span class="text-blue-400 font-semibold">88%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full" style="width: 0%" data-width="88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300 font-medium">Digital Editing</span>
+                                <span class="text-blue-400 font-semibold">82%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full" style="width: 0%" data-width="82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="reveal">
+                    <h3 class="text-2xl font-semibold mb-8 gold-text">Professional Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300 font-medium">Creative Problem Solving</span>
+                                <span class="text-blue-400 font-semibold">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar bg-gradient-to-r from-yellow-500 to-orange-500 h-3 rounded-full" style="width: 0%" data-width="95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300 font-medium">Business Development</span>
+                                <span class="text-blue-400 font-semibold">88%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar bg-gradient-to-r from-yellow-500 to-orange-500 h-3 rounded-full" style="width: 0%" data-width="88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300 font-medium">Team Collaboration</span>
+                                <span class="text-blue-400 font-semibold">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar bg-gradient-to-r from-yellow-500 to-orange-500 h-3 rounded-full" style="width: 0%" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300 font-medium">Communication</span>
+                                <span class="text-blue-400 font-semibold">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar bg-gradient-to-r from-yellow-500 to-orange-500 h-3 rounded-full" style="width: 0%" data-width="90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Education Section -->
+    <section id="education" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 reveal">My <span class="gradient-text">Education</span></h2>
+            <div class="space-y-8">
+                <!-- Education Entry 1: Karni International School -->
+                <div class="reveal bg-gray-800 p-6 rounded-2xl glow-border card-hover">
+                    <h3 class="text-2xl font-semibold gold-text mb-2">Primary Education</h3>
+                    <p class="text-gray-300 text-lg">Karni International School, Mandsaur (M.P.)</p>
+                    <p class="text-gray-400 mt-2">April 2010 - March 2014</p>
+                    <p class="text-gray-300 mt-4 leading-relaxed">Completed foundational schooling, developing early academic and social skills.</p>
+                </div>
+                <!-- Education Entry 2: St. Thomas Sr. Sec. School -->
+                <div class="reveal bg-gray-800 p-6 rounded-2xl glow-border card-hover">
+                    <h3 class="text-2xl font-semibold gold-text mb-2">Secondary & Higher Secondary Education</h3>
+                    <p class="text-gray-300 text-lg">St. Thomas Sr. Sec. School, Mandsaur (M.P.)</p>
+                    <p class="text-gray-400 mt-2">2014 - 2025</p>
+                    <p class="text-gray-300 mt-4 leading-relaxed">Completed higher secondary education with a strong academic foundation across diverse subjects.</p>
+                </div>
+                <!-- Education Entry 3: JK Lakshmipat University -->
+                <div class="reveal bg-gray-800 p-6 rounded-2xl glow-border card-hover">
+                    <h3 class="text-2xl font-semibold gold-text mb-2">Bachelor's Degree, Computer Science</h3>
+                    <p class="text-gray-300 text-lg">JK Lakshmipat University, Jaipur</p>
+                    <p class="text-gray-400 mt-2">August 2025 - August 2029</p>
+                    <p class="text-gray-300 mt-4 leading-relaxed">Enrolled in a Bachelor's degree in Cybersecurity, focusing on building expertise in areas such as network security, ethical hacking, and digital forensics</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 reveal">My <span class="gradient-text">Experience</span></h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Experience 1: Founder & CEO – Kleanzol Pvt. Ltd. -->
+                <div class="flip-card reveal">
+                    <div class="flip-card-inner bg-gray-800 p-6 rounded-2xl glow-border">
+                        <div class="flip-card-front flex flex-col justify-center items-center text-center">
+                            <img src="https://placehold.co/40x40/2563eb/ffffff/png?text=KL" alt="Kleanzol Logo" class="w-10 h-10 mb-3 rounded-full object-cover">
+                            <h3 class="text-2xl font-semibold gold-text mb-2">Founder & CEO</h3>
+                            <p class="text-gray-300 text-lg">Kleanzol Pvt. Ltd.</p>
+                            <p class="text-gray-400 mt-2">February 2025 - Present</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="text-gray-300 leading-relaxed">Leading a startup focused on innovative cleaning solutions, driving business growth and strategic initiatives from inception.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Experience 2: Co-Owner – Ashirwad Stationery -->
+                <div class="flip-card reveal">
+                    <div class="flip-card-inner bg-gray-800 p-6 rounded-2xl glow-border">
+                        <div class="flip-card-front flex flex-col justify-center items-center text-center">
+                            <img src="https://placehold.co/40x40/8b5cf6/ffffff/png?text=AS" alt="Ashirwad Logo" class="w-10 h-10 mb-3 rounded-full object-cover">
+                            <h3 class="text-2xl font-semibold gold-text mb-2">Co-Owner</h3>
+                            <p class="text-gray-300 text-lg">Ashirwad Stationery</p>
+                            <p class="text-gray-400 mt-2">August 2017 - Present</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="text-gray-300 leading-relaxed">Managing daily operations, inventory, and customer relations for a retail stationery business, ensuring profitability and customer satisfaction.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Experience 3: Project Intern – BuzzFlick -->
+                <div class="flip-card reveal">
+                    <div class="flip-card-inner bg-gray-800 p-6 rounded-2xl glow-border">
+                        <div class="flip-card-front flex flex-col justify-center items-center text-center">
+                            <img src="https://placehold.co/40x40/fbbf24/000000/png?text=BF" alt="BuzzFlick Logo" class="w-10 h-10 mb-3 rounded-full object-cover">
+                            <h3 class="text-2xl font-semibold gold-text mb-2">Project Intern</h3>
+                            <p class="text-gray-300 text-lg">BuzzFlick</p>
+                            <p class="text-gray-400 mt-2">February 2023 - December 2024</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="text-gray-300 leading-relaxed">Gained hands-on experience in digital marketing strategies, content creation, and project management within a dynamic agency environment.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Experience 4: Web Editor – Freelancer.com -->
+                <div class="flip-card reveal">
+                    <div class="flip-card-inner bg-gray-800 p-6 rounded-2xl glow-border">
+                        <div class="flip-card-front flex flex-col justify-center items-center text-center">
+                            <img src="images/freelancer.png" alt="Freelancer.com Logo" class="w-10 h-10 mb-3 rounded-full object-cover">
+                            <h3 class="text-2xl font-semibold gold-text mb-2">Web Editor</h3>
+                            <p class="text-gray-300 text-lg">Freelancer.com</p>
+                            <p class="text-gray-400 mt-2">June 2022 - October 2023 (1 year 5 months)</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="text-gray-300 leading-relaxed">Provided web editing services, ensuring high-quality content, grammar, and SEO optimization for various clients on the Freelancer platform.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Experience 5: Jr. Editor – Upwork -->
+                <div class="flip-card reveal">
+                    <div class="flip-card-inner bg-gray-800 p-6 rounded-2xl glow-border">
+                        <div class="flip-card-front flex flex-col justify-center items-center text-center">
+                            <img src="images/upwork.png" alt="Upwork Logo" class="w-10 h-10 mb-3 rounded-full object-cover">
+                            <h3 class="text-2xl font-semibold gold-text mb-2">Senior Editor</h3>
+                            <p class="text-gray-300 text-lg">Upwork</p>
+                            <p class="text-gray-400 mt-2">September 2020 - April 2022 (1 year 8 months)</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="text-gray-300 leading-relaxed">Managed and edited diverse content projects for clients on Upwork, focusing on improving readability, accuracy, and overall quality.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 6: Jr. Editor – DigiVibes -->
+                <div class="flip-card reveal">
+                    <div class="flip-card-inner bg-gray-800 p-6 rounded-2xl glow-border">
+                        <div class="flip-card-front flex flex-col justify-center items-center text-center">
+                            <img src="https://placehold.co/40x40/fbbf24/000000/png?text=DV" alt="Upwork Logo" class="w-10 h-10 mb-3 rounded-full object-cover">
+                            <h3 class="text-2xl font-semibold gold-text mb-2">Senior Editor</h3>
+                            <p class="text-gray-300 text-lg">DigiVibes, (Mandsaur)</p>
+                            <p class="text-gray-400 mt-2">July 2018 - August 2020 (2 year 1 months)</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="text-gray-300 leading-relaxed">Managed and edited diverse local content for clients and buisnesses, focusing on improving readability, accuracy, and overall content quality.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 reveal">My <span class="gradient-text">Certificates</span></h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                <!-- Certificate 1: Python (Basic) -->
+                <div class="certificate-card reveal bg-gray-800 p-8 rounded-2xl glow-border hover-glow group"
+                     data-image="images/certificates/python-basic.jpg"
+                     data-title="Python (Basic)"
+                     data-link="https://www.hackerrank.com/certificates/08643a12666e">
+                    <div class="flex items-start justify-between mb-5">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center certificate-icon">
+                            <i class="fab fa-python text-white text-2xl"></i>
+                        </div>
+                        <div class="bg-green-500 text-white text-sm font-bold px-3 py-1.5 rounded">VERIFIED</div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Python</h3>
+                    <p class="text-gray-400 text-base mb-5">(Basic)</p>
+                    <div class="flex items-center justify-end text-blue-400 group-hover:text-blue-300 transition-colors text-sm">
+                        <span class="mr-2">Click to View</span>
+                        <i class="fas fa-eye"></i>
+                    </div>
+                </div>
+
+                <!-- Certificate 2: Problem Solving (Basic) -->
+                <div class="certificate-card reveal bg-gray-800 p-8 rounded-2xl glow-border hover-glow group"
+                     data-image="images/certificates/problem-solving-basic.jpg"
+                     data-title="Problem Solving (Basic)"
+                     data-link="https://www.hackerrank.com/certificates/81b05d4a6aab">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center certificate-icon">
+                            <i class="fas fa-brain text-white text-xl"></i>
+                        </div>
+                        <div class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">VERIFIED</div>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-1">Problem Solving</h3>
+                    <p class="text-gray-400 text-sm mb-4">(Basic)</p>
+                    <div class="flex items-center justify-end text-blue-400 group-hover:text-blue-300 transition-colors text-xs">
+                        <span class="mr-2">Click to View</span>
+                        <i class="fas fa-eye"></i>
+                    </div>
+                </div>
+
+                <!-- Certificate 3: SQL (Basic) -->
+                <div class="certificate-card reveal bg-gray-800 p-8 rounded-2xl glow-border hover-glow group"
+                     data-image="images/certificates/sql-basic.jpg"
+                     data-title="SQL (Basic)"
+                     data-link="https://www.hackerrank.com/certificates/9615c7f5e647">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center certificate-icon">
+                            <i class="fas fa-database text-white text-xl"></i>
+                        </div>
+                        <div class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">VERIFIED</div>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-1">SQL</h3>
+                    <p class="text-gray-400 text-sm mb-4">(Basic)</p>
+                    <div class="flex items-center justify-end text-blue-400 group-hover:text-blue-300 transition-colors text-xs">
+                        <span class="mr-2">Click to View</span>
+                        <i class="fas fa-eye"></i>
+                    </div>
+                </div>
+
+                <!-- Certificate 4: JavaScript (Basic) -->
+                <div class="certificate-card reveal bg-gray-800 p-8 rounded-2xl glow-border hover-glow group"
+                     data-image="images/certificates/javascript-basic.jpg"
+                     data-title="JavaScript (Basic)"
+                     data-link="https://www.hackerrank.com/certificates/7ff92e74f203">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center certificate-icon">
+                            <i class="fab fa-js text-white text-xl"></i>
+                        </div>
+                        <div class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">VERIFIED</div>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-1">JavaScript</h3>
+                    <p class="text-gray-400 text-sm mb-4">(Basic)</p>
+                    <div class="flex items-center justify-end text-blue-400 group-hover:text-blue-300 transition-colors text-xs">
+                        <span class="mr-2">Click to View</span>
+                        <i class="fas fa-eye"></i>
+                    </div>
+                </div>
+				
+				<!-- Certificate 5: Java (Basic) -->
+				<div class="certificate-card reveal bg-gray-800 p-8 rounded-2xl glow-border hover-glow group"
+                     data-image="images/certificates/java-basic.jpg"
+                     data-title="Java (Basic)"
+                     data-link="https://www.hackerrank.com/certificates/10837638c073">
+                    <div class="flex items-start justify-between mb-5">
+                        <div class="w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-lg flex items-center justify-center certificate-icon">
+                            <i class="fab fa-java text-white text-2xl"></i>
+                        </div>
+                        <div class="bg-purple-500 text-white text-sm font-bold px-3 py-1.5 rounded">VERIFIED</div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Java</h3>
+                    <p class="text-gray-400 text-base mb-5">(Basic)</p>
+                    <div class="flex items-center justify-end text-blue-400 group-hover:text-blue-300 transition-colors text-sm">
+                        <span class="mr-2">Click to View</span>
+                        <i class="fas fa-eye"></i>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="certificate-modal">
+        <div class="certificate-modal-content">
+            <span class="certificate-modal-close" id="closeModal">&times;</span>
+            <img id="certificateImage" class="certificate-modal-image" src="" alt="Certificate">
+            <h3 id="certificateTitle" class="certificate-modal-title"></h3>
+            <p id="certificateSubtitle" class="text-gray-400 text-center text-sm mb-4"></p>
+            <div class="certificate-modal-actions" id="certificateActions">
+                <a id="certificateLink" href="#" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3 rounded-lg font-semibold text-white inline-flex items-center gap-2 hover-glow hidden">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span id="certificateLinkText">View Certificate</span>
+                </a>
+                <p id="certificateNoLink" class="text-gray-400 text-center text-sm italic hidden">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    This certificate is displayed here for verification purposes.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 reveal">Get In <span class="gradient-text">Touch</span></h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="reveal">
+                    <h3 class="text-2xl font-semibold mb-6 gold-text">Let's Connect</h3>
+                    <p class="text-gray-300 mb-8 leading-relaxed">
+                        I'm always interested in new opportunities and exciting projects. Whether you have a question or just want to say hello, I'll try my best to get back to you!
+                    </p>
+                    <div class="space-y-4">
+                        <a href="mailto:kaushalmalvi412@gmail.com" class="flex items-center space-x-4 hover-glow p-4 rounded-lg transition-all hover:scale-105">
+    <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center transition-transform hover:rotate-12">
+        <i class="fas fa-envelope text-white"></i>
+    </div>
+    <div>
+        <p class="text-gray-400">Email</p>
+        <p class="text-white font-semibold">kaushalmalvi412@gmail.com</p>
+    </div>
+</a>
+
+<a href="https://www.linkedin.com/in/kaushalmalvi/" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-4 hover-glow p-4 rounded-lg transition-all hover:scale-105">
+    <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center transition-transform hover:rotate-12">
+        <i class="fab fa-linkedin-in text-white"></i>
+    </div>
+    <div>
+        <p class="text-gray-400">LinkedIn</p>
+        <p class="text-white font-semibold">Click Here!</p>
+    </div>
+</a>
+
+<a href="https://www.instagram.com/k4ushal.06" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-4 hover-glow p-4 rounded-lg transition-all hover:scale-105">
+    <div class="w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center transition-transform hover:rotate-12">
+        <i class="fab fa-instagram text-white"></i>
+    </div>
+    <div>
+        <p class="text-gray-400">Instagram</p>
+        <p class="text-white font-semibold">Click Here!</p>
+    </div>
+</a>
+
+                    </div>
+                </div>
+                <div class="reveal">
+                    <form id="contactForm" action="https://formsubmit.co/ffd0d42c2afc6cab7186b02378112a17" method="POST" class="bg-gray-800 p-8 rounded-2xl glow-border">
+                        <!-- Hidden inputs -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+
+                        <div id="formContent">
+                            <div class="mb-6">
+                                <label class="block text-gray-300 mb-2">Name</label>
+                                <input type="text" name="name" required class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" placeholder="Your name">
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-gray-300 mb-2">Email</label>
+                                <input type="email" name="email" required class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" placeholder="your.email@example.com">
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-gray-300 mb-2">Message</label>
+                                <textarea name="message" rows="4" required class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none" placeholder="Your message..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full btn-primary py-3 rounded-lg font-semibold hover-glow transition-all" id="submitBtn">
+                                <span id="submitText">Send Message</span>
+                                <span id="submitLoader" class="hidden">
+                                    <i class="fas fa-spinner fa-spin"></i> Sending...
+                                </span>
+                            </button>
+                        </div>
+
+                        <div id="thankYouMessage" class="hidden text-center">
+                            <h3 class="text-green-400 text-xl font-semibold mb-4">Thank you for your message!</h3>
+                            <button onclick="window.location.reload()" class="btn-primary px-6 py-3 rounded-lg font-semibold">Send Another!</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8 text-center">
+        <div class="container mx-auto px-6">
+            <p class="text-gray-400">© 2026 Kaushal Malvi | All rights reserved</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="https://www.linkedin.com/in/kaushalmalvi/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-all hover:scale-125 hover:rotate-12" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition-all hover:scale-125 hover:rotate-12" aria-label="GitHub">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="https://instagram.com/k4ushal.06" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-all hover:scale-125 hover:rotate-12" aria-label="Instagram">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="https://twitter.com/_kaushalmalvi_" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-all hover:scale-125 hover:rotate-12" aria-label="Twitter">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Scroll Progress Bar
+        function updateScrollProgress() {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        }
+
+        // Navbar scroll effect
+        function updateNavbar() {
+            const navbar = document.getElementById('navbar');
+            const homeSection = document.getElementById('home');
+            const homeSectionHeight = homeSection ? homeSection.offsetHeight : 0;
+            
+            // Show/hide navbar based on scroll position
+            if (window.scrollY > homeSectionHeight - 100) {
+                // Scrolled past homepage - show navbar
+                navbar.classList.add('visible');
+                navbar.classList.add('scrolled');
+            } else {
+                // On homepage - hide navbar
+                navbar.classList.remove('visible');
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Update active nav link based on scroll position
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            const scrollPosition = window.scrollY + 100; // Offset for better detection
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const sectionBottom = sectionTop + sectionHeight;
+                
+                // Check if we're in this section
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            // Special case: if at top of page, show home as active
+            if (window.scrollY < 100) {
+                current = 'home';
+            }
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const linkHref = link.getAttribute('href');
+                // Match the link href to the current section
+                if (linkHref === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Reveal on scroll animation
+        function revealElements() {
+            const elements = document.querySelectorAll('.reveal');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                    
+                    // Animate skill bars
+                    if (element.querySelector('.skill-bar')) {
+                        const skillBars = element.querySelectorAll('.skill-bar');
+                        skillBars.forEach(bar => {
+                            const width = bar.getAttribute('data-width');
+                            setTimeout(() => {
+                                bar.style.width = width;
+                            }, 200);
+                        });
+                    }
+                }
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const menuBtn = document.getElementById('menu-btn');
+                    if (mobileMenu && mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        const icon = menuBtn.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
+                    
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for hero section
+        function updateParallax() {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('#home');
+            if (parallax) {
+                parallax.style.backgroundPositionY = (scrolled * 0.5) + 'px';
+            }
+        }
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        function updateBackToTop() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        }
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Initialize animations
+        window.addEventListener('scroll', () => {
+            revealElements();
+            updateParallax();
+            updateScrollProgress();
+            updateNavbar();
+            updateBackToTop();
+        });
+
+        // Responsive Video Loading - Loads different videos based on screen size
+        function loadResponsiveVideo() {
+            const heroVideo = document.getElementById('heroVideo');
+            if (!heroVideo) return;
+            
+            const width = window.innerWidth;
+            let videoSrc = 'images/test.mp4'; // Default desktop video
+            
+            if (width <= 768) {
+                // Mobile
+                videoSrc = 'images/test-mobile.mp4';
+            } else if (width <= 1024) {
+                // Tablet
+                videoSrc = 'images/test-tablet.mp4';
+            }
+            // Desktop uses default (test.mp4)
+            
+            // Set the video source
+            heroVideo.src = videoSrc;
+            
+            // Also handle window resize to switch videos if needed
+            let resizeTimer;
+            let currentVideoSrc = videoSrc;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    const newWidth = window.innerWidth;
+                    let newVideoSrc = 'images/test.mp4';
+                    
+                    if (newWidth <= 768) {
+                        newVideoSrc = 'images/test-mobile.mp4';
+                    } else if (newWidth <= 1024) {
+                        newVideoSrc = 'images/test-tablet.mp4';
+                    }
+                    
+                    // Only change if different
+                    if (currentVideoSrc !== newVideoSrc) {
+                        currentVideoSrc = newVideoSrc;
+                        heroVideo.src = newVideoSrc;
+                    }
+                }, 250);
+            });
+        }
+
+        window.addEventListener('load', () => {
+            revealElements();
+            updateScrollProgress();
+            updateNavbar();
+            updateBackToTop();
+            
+            // Load responsive video based on screen size
+            loadResponsiveVideo();
+            
+            // Initialize typewriter effect
+            const typewriter = document.querySelector('.typewriter');
+            if (typewriter) {
+                setTimeout(() => {
+                    typewriter.style.animation = 'none';
+                    setTimeout(() => {
+                        typewriter.style.animation = 'typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite';
+                    }, 10);
+                }, 100);
+            }
+        });
+
+        // Improved Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+                const icon = menuBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                    mobileMenu.classList.remove('active');
+                    const icon = menuBtn.querySelector('i');
+    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+    }
+        });
+        }
+
+        // Improved Contact Form
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const submitText = document.getElementById('submitText');
+        const submitLoader = document.getElementById('submitLoader');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(event) {
+                            event.preventDefault();
+                            const form = event.target;
+                
+                // Show loading state
+                submitText.classList.add('hidden');
+                submitLoader.classList.remove('hidden');
+                submitBtn.disabled = true;
+
+                            fetch(form.action, {
+                                method: form.method,
+                                body: new FormData(form),
+                            }).then(() => {
+                                document.getElementById('formContent').classList.add('hidden');
+                                document.getElementById('thankYouMessage').classList.remove('hidden');
+                            }).catch(() => {
+                                alert('Something went wrong. Please try again.');
+                    submitText.classList.remove('hidden');
+                    submitLoader.classList.add('hidden');
+                    submitBtn.disabled = false;
+                            });
+                        });
+        }
+
+        // Add intersection observer for better performance
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all reveal elements
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Certificate Modal Functionality
+        const certificateModal = document.getElementById('certificateModal');
+        const certificateImage = document.getElementById('certificateImage');
+        const certificateTitle = document.getElementById('certificateTitle');
+        const certificateLink = document.getElementById('certificateLink');
+        const closeModal = document.getElementById('closeModal');
+        const certificateCards = document.querySelectorAll('.certificate-card');
+
+        // Open modal when certificate card is clicked
+        certificateCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const imageSrc = this.getAttribute('data-image');
+                const title = this.getAttribute('data-title');
+                const subtitle = this.getAttribute('data-subtitle');
+                const link = this.getAttribute('data-link');
+                
+                certificateImage.src = imageSrc;
+                certificateImage.alt = title;
+                certificateTitle.textContent = title;
+                
+                // Set subtitle if available
+                const subtitleElement = document.getElementById('certificateSubtitle');
+                if (subtitle) {
+                    subtitleElement.textContent = subtitle;
+                    subtitleElement.classList.remove('hidden');
+                } else {
+                    subtitleElement.textContent = '';
+                    subtitleElement.classList.add('hidden');
+                }
+                
+                // Show/hide link button and explanation based on whether link exists
+                const certificateNoLink = document.getElementById('certificateNoLink');
+                if (link && link.trim() !== '') {
+                    certificateLink.href = link;
+                    certificateLink.classList.remove('hidden');
+                    certificateNoLink.classList.add('hidden');
+                    // Update button text based on link type
+                    const linkText = document.getElementById('certificateLinkText');
+                    if (link.includes('hackerrank.com')) {
+                        linkText.textContent = 'View on HackerRank';
+                    } else {
+                        linkText.textContent = 'View Certificate';
+                    }
+                } else {
+                    certificateLink.classList.add('hidden');
+                    certificateNoLink.classList.remove('hidden');
+                }
+                
+                certificateModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            });
+        });
+
+        // Close modal
+        function closeCertificateModal() {
+            certificateModal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        closeModal.addEventListener('click', closeCertificateModal);
+
+        // Ensure certificate link opens properly
+        certificateLink.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent event from bubbling to modal
+            const href = this.getAttribute('href');
+            if (href && href !== '#' && href.trim() !== '') {
+                window.open(href, '_blank', 'noopener,noreferrer');
+            }
+        });
+
+        // Close modal when clicking outside the content
+        certificateModal.addEventListener('click', function(e) {
+            if (e.target === certificateModal) {
+                closeCertificateModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && certificateModal.classList.contains('active')) {
+                closeCertificateModal();
+            }
+        });
+
+        // Custom Cursor with Floating Particles
+        const cursor = document.getElementById('customCursor');
+        const cursorDot = document.getElementById('cursorDot');
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+        let dotX = 0;
+        let dotY = 0;
+        let lastParticleTime = 0;
+        let lastTrailTime = 0;
+        const particleInterval = 50; // Create particle every 50ms
+        const trailInterval = 20; // Create trail particle every 20ms
+
+        // Check if device is touch-enabled (mobile/tablet)
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+        if (!isTouchDevice) {
+            // Track mouse position
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                
+                // Create trail particles
+                const now = Date.now();
+                if (now - lastTrailTime > trailInterval) {
+                    createTrailParticle(mouseX, mouseY);
+                    lastTrailTime = now;
+                }
+            });
+
+            // Smooth cursor movement with easing
+            function animateCursor() {
+                // Main cursor with lag
+                cursorX += (mouseX - cursorX) * 0.1;
+                cursorY += (mouseY - cursorY) * 0.1;
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+
+                // Dot cursor with less lag
+                dotX += (mouseX - dotX) * 0.3;
+                dotY += (mouseY - dotY) * 0.3;
+                cursorDot.style.left = dotX + 'px';
+                cursorDot.style.top = dotY + 'px';
+
+                // Create floating particles periodically
+                const now = Date.now();
+                if (now - lastParticleTime > particleInterval) {
+                    createFloatingParticle(cursorX, cursorY);
+                    lastParticleTime = now;
+                }
+
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+
+            // Hover effects
+            const hoverElements = document.querySelectorAll('a, button, input, textarea, .card-hover, .flip-card');
+            hoverElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.classList.add('hover');
+                    cursorDot.classList.add('hover');
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('hover');
+                    cursorDot.classList.remove('hover');
+                });
+            });
+
+            // Click effect
+            document.addEventListener('mousedown', () => {
+                cursor.classList.add('click');
+                cursorDot.classList.add('click');
+                createClickParticles(mouseX, mouseY);
+            });
+            document.addEventListener('mouseup', () => {
+                cursor.classList.remove('click');
+                cursorDot.classList.remove('click');
+            });
+
+            // Create floating particle
+            function createFloatingParticle(x, y) {
+                const particle = document.createElement('div');
+                particle.className = 'cursor-particle';
+                
+                // Random offset
+                const offsetX = (Math.random() - 0.5) * 30;
+                const offsetY = (Math.random() - 0.5) * 30;
+                
+                particle.style.left = (x + offsetX) + 'px';
+                particle.style.top = (y + offsetY) + 'px';
+                
+                // Random color from theme
+                const colors = ['#2563eb', '#8b5cf6', '#fbbf24', '#60a5fa', '#a78bfa'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.background = randomColor;
+                particle.style.boxShadow = `0 0 10px ${randomColor}`;
+                
+                document.body.appendChild(particle);
+                
+                // Remove after animation
+                setTimeout(() => {
+                    particle.remove();
+                }, 1500);
+            }
+
+            // Create trail particle
+            function createTrailParticle(x, y) {
+                const trail = document.createElement('div');
+                trail.className = 'particle-trail';
+                trail.style.left = x + 'px';
+                trail.style.top = y + 'px';
+                
+                // Random color
+                const colors = ['#2563eb', '#8b5cf6'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                trail.style.background = randomColor;
+                
+                document.body.appendChild(trail);
+                
+                setTimeout(() => {
+                    trail.remove();
+                }, 800);
+            }
+
+            // Create click particles burst
+            function createClickParticles(x, y) {
+                for (let i = 0; i < 8; i++) {
+                    setTimeout(() => {
+                        const particle = document.createElement('div');
+                        particle.className = 'cursor-particle';
+                        
+                        const angle = (Math.PI * 2 * i) / 8;
+                        const distance = 20 + Math.random() * 20;
+                        const offsetX = Math.cos(angle) * distance;
+                        const offsetY = Math.sin(angle) * distance;
+                        
+                        particle.style.left = (x + offsetX) + 'px';
+                        particle.style.top = (y + offsetY) + 'px';
+                        particle.style.background = '#fbbf24';
+                        particle.style.boxShadow = '0 0 15px #fbbf24';
+                        particle.style.animationDuration = '0.8s';
+                        
+                        document.body.appendChild(particle);
+                        
+                        setTimeout(() => {
+                            particle.remove();
+                        }, 800);
+                    }, i * 20);
+                }
+            }
+
+            // Hide cursor when mouse leaves window
+            document.addEventListener('mouseleave', () => {
+                cursor.style.opacity = '0';
+                cursorDot.style.opacity = '0';
+            });
+            document.addEventListener('mouseenter', () => {
+                cursor.style.opacity = '1';
+                cursorDot.style.opacity = '1';
+            });
+        } else {
+            // Hide custom cursor on touch devices and restore default cursor
+            if (cursor) cursor.style.display = 'none';
+            if (cursorDot) cursorDot.style.display = 'none';
+            document.body.style.cursor = '';
+            // Remove cursor: none from all elements
+            const style = document.createElement('style');
+            style.textContent = 'body, * { cursor: auto !important; }';
+            document.head.appendChild(style);
+        }
+    </script>
+</body>
+</html>

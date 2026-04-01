@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kaushal Malvi | Photography Portfolio</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Photography & cinematic visuals by Kaushal Malvi — portraits, street, landscapes, architecture. Book sessions and explore the portfolio." />
+  <meta name="keywords" content="Kaushal Malvi, photography, portraits, street photography, landscapes, architecture, cinematic video" />
+  <link rel="canonical" href="http://localhost/index.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Kaushal Malvi | Photography Portfolio" />
+  <meta property="og:description" content="Explore the portfolio, book a session, and see recent work." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://localhost/index.html" />
+  <meta property="og:image" content="images/Books.JPG" />
+
+  <!-- Icons -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- TailwindCSS & AOS & Icons (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Styles -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Color scheme -->
+  <meta name="color-scheme" content="light dark">
+</head>
+<body class="bg-[var(--bg)] text-[var(--text)] antialiased">
+  <!-- Preloader -->
+  <div id="preloader" class="fixed inset-0 z-[2000] flex items-center justify-center bg-[var(--bg)]">
+    <div class="loader">
+      <span></span><span></span><span></span>
+    </div>
+    <p class="mt-6 text-sm text-[var(--muted)]">Loading visual goodness…</p>
+  </div>
+
+  <!-- Scroll Progress -->
+  <div id="progressBar" class="fixed top-0 left-0 h-[3px] w-0 bg-[var(--accent)] z-[1500]"></div>
+
+  <!-- Navbar -->
+  <nav id="navbar" class="navbar fixed top-0 left-0 w-full z-[1400] transition-all duration-300">
+    <div class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+      <a href="#" class="text-2xl font-display font-bold tracking-wide">KAUSHAL MALVI</a>
+
+      <!-- Desktop -->
+      <div class="hidden md:flex items-center gap-8 text-[var(--text-muted)]">
+        <a class="nav-link" href="#home">Home</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#services">Services</a>
+        <a class="nav-link" href="#portfolio">Portfolio</a>
+        <a class="nav-link" href="#connect">Contact</a>
+      </div>
+
+      <!-- Mobile -->
+      <button id="menuBtn" class="md:hidden text-xl" aria-label="Open Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden backdrop-blur bg-[color:var(--nav-bg)]/90 border-t border-[var(--border)]">
+      <div class="px-6 py-4 flex flex-col gap-4">
+        <a class="nav-link" href="#home">Home</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#services">Services</a>
+        <a class="nav-link" href="#portfolio">Portfolio</a>
+        <a class="nav-link" href="#connect">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="home" class="hero-section relative h-[100svh] grid place-items-center overflow-hidden">
+    <img class="hero-bg absolute inset-0 w-full h-full object-cover opacity-40" src="images/background.jpg" alt="Abstract black and white photograph">
+    <div class="relative z-10 text-center px-6" data-aos="fade-up" data-aos-duration="1000">
+      <h1 class="hero-title font-display font-bold mb-4">KAUSHAL MALVI</h1>
+      <p class="hero-subtitle">Capturing moments, creating memories</p>
+      <div class="mt-8 flex items-center justify-center gap-4">
+        <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
+        <a href="#connect" class="btn btn-outline">Get In Touch</a>
+      </div>
+    </div>
+    <div class="hero-gradient absolute inset-0"></div>
+  </header>
+
+  <!-- About + Stats (combined) -->
+  <section id="about" class="section bg-[var(--card-bg)]">
+    <div class="container">
+      <div class="text-center mb-14" data-aos="fade-up">
+        <h2 class="section-title">About The Artist</h2>
+        <div class="divider"></div>
+        <p class="max-w-3xl mx-auto text-[var(--muted)] mt-4">For the past three years, I’ve been photographing people, places and moments — and crafting cinematic videos that tell stories. Every frame is an exploration of light, emotion, and intent.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
+        <div data-aos="fade-right">
+          <img src="images/profile.jpg" alt="Portrait of Kaushal Malvi" class="rounded-2xl shadow-2xl w-full max-w-xl mx-auto" loading="lazy">
+        </div>
+
+        <div data-aos="fade-left" class="space-y-6">
+          <h3 class="text-2xl font-display font-bold">Passionate Visual Storyteller</h3>
+          <p class="text-[var(--muted)]">I build images that feel honest. Whether it’s streets drenched in neon, temple spires at sunrise, or portraits that reveal character — I aim for clean, intentional compositions.</p>
+
+          <!-- Skills -->
+          <div class="space-y-5">
+            <div class="skill">
+              <span>Portrait Photography</span><span class="text-[var(--accent)] font-semibold">95%</span>
+              <div class="bar"><div style="width:95%"></div></div>
+            </div>
+            <div class="skill">
+              <span>Event Photography</span><span class="text-[var(--accent)] font-semibold">90%</span>
+              <div class="bar"><div style="width:90%"></div></div>
+            </div>
+            <div class="skill">
+              <span>Landscape Photography</span><span class="text-[var(--accent)] font-semibold">85%</span>
+              <div class="bar"><div style="width:85%"></div></div>
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <div class="grid grid-cols-3 gap-6 pt-4">
+            <div class="stat">
+              <span class="stat-number" data-count="1000">0</span>
+              <p>Photos</p>
+            </div>
+            <div class="stat">
+              <span class="stat-number" data-count="3">0</span>
+              <p>Years</p>
+            </div>
+            <div class="stat">
+              <span class="stat-number" data-count="10">0</span>
+              <p>Clients</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="text-center mb-14" data-aos="fade-up">
+        <h2 class="section-title">What I Capture</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="icon"><i class="fas fa-user"></i></div>
+          <h3>Lifestyle Portraits</h3>
+          <p>Natural, expressive portraits that capture authentic emotion.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+          <div class="icon"><i class="fas fa-bullhorn"></i></div>
+          <h3>Advertising & Product</h3>
+          <p>Clean, brand-lifting imagery for campaigns and catalogs.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
+          <div class="icon"><i class="fas fa-film"></i></div>
+          <h3>Cinematic Visuals</h3>
+          <p>Short films, creative reels, and cinematic storytelling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Portfolio -->
+  <section class="section bg-[var(--card-bg)]">
+    <div class="container">
+      <div class="text-center mb-10" data-aos="fade-up">
+        <h2 class="section-title">Featured Work</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Use existing images -->
+        <button class="gallery-item" data-category="street">
+          <img src="images/Metro.jpg" alt="Urban Transit Shadows" loading="lazy">
+          <div class="overlay"><h4>Urban Transit Shadows</h4><p>Street • 2024</p></div>
+        </button>
+        <button class="gallery-item" data-category="landscapes">
+          <img src="images/Marine Drive.JPG" alt="Marine Drive at Dusk" loading="lazy">
+          <div class="overlay"><h4>Marine Drive at Dusk</h4><p>Landscape • 2023</p></div>
+        </button>
+        <button class="gallery-item" data-category="architecture">
+          <img src="images/Shikhar_1.jpg" alt="Ancient Shikhar" loading="lazy">
+          <div class="overlay"><h4>Ancient Shikhar</h4><p>Architecture • 2024</p></div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full Portfolio -->
+  <section id="portfolio" class="section">
+    <div class="container">
+      <div class="text-center mb-10" data-aos="fade-up">
+        <h2 class="section-title">Portfolio</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-2 mb-8" data-aos="fade-up" data-aos-delay="100">
+        <button class="filter-btn active" data-filter="all">All Work</button>
+        <button class="filter-btn" data-filter="street">Street</button>
+        <button class="filter-btn" data-filter="landscapes">Landscapes</button>
+        <button class="filter-btn" data-filter="architecture">Architecture</button>
+        <button class="filter-btn" data-filter="portraits">Portraits</button>
+        <button class="filter-btn" data-filter="nature">Nature</button>
+      </div>
+
+      <div id="galleryContainer" class="gallery-grid">
+        <!-- Street -->
+        <button class="gallery-item" data-category="street">
+          <img src="images/Books.JPG" alt="Stacks of Knowledge" loading="lazy">
+          <div class="overlay"><h4>Stacks of Knowledge</h4><p>Street • 2024</p></div>
+        </button>
+        <button class="gallery-item" data-category="street">
+          <img src="images/LED_Sign.JPG" alt="City Neon Glow" loading="lazy">
+          <div class="overlay"><h4>City Neon Glow</h4><p>Street • 2023</p></div>
+        </button>
+        <button class="gallery-item" data-category="street">
+          <img src="images/Metro.jpg" alt="Urban Transit Shadows" loading="lazy">
+          <div class="overlay"><h4>Urban Transit Shadows</h4><p>Street • 2024</p></div>
+        </button>
+        <button class="gallery-item" data-category="street">
+          <img src="images/Sign_2.JPG" alt="Nightlife Signage" loading="lazy">
+          <div class="overlay"><h4>Nightlife Signage</h4><p>Street • 2023</p></div>
+        </button>
+
+        <!-- Landscapes -->
+        <button class="gallery-item" data-category="landscapes">
+          <img src="images/Marine Drive.JPG" alt="Marine Drive at Dusk" loading="lazy">
+          <div class="overlay"><h4>Marine Drive at Dusk</h4><p>Landscape • 2023</p></div>
+        </button>
+        <button class="gallery-item" data-category="landscapes">
+          <img src="images/Flower.jpg" alt="Serenity in Bloom" loading="lazy">
+          <div class="overlay"><h4>Serenity in Bloom</h4><p>Landscape • 2024</p></div>
+        </button>
+
+        <!-- Architecture -->
+        <button class="gallery-item" data-category="architecture">
+          <img src="images/Shahi Palki.jpg" alt="Royal Procession Float" loading="lazy">
+          <div class="overlay"><h4>Royal Procession Float</h4><p>Architecture • 2024</p></div>
+        </button>
+        <button class="gallery-item" data-category="architecture">
+          <img src="images/Shikhar_1.jpg" alt="Ancient Shikhar" loading="lazy">
+          <div class="overlay"><h4>Ancient Shikhar</h4><p>Architecture • 2024</p></div>
+        </button>
+        <button class="gallery-item" data-category="architecture">
+          <img src="images/Shikhar_2.jpg" alt="Temple Spire" loading="lazy">
+          <div class="overlay"><h4>Temple Spire</h4><p>Architecture • 2024</p></div>
+        </button>
+
+        <!-- Street B&W -->
+        <button class="gallery-item" data-category="street">
+          <img src="images/Random_2.JPG" alt="Crowded Bazaar – B&W" loading="lazy">
+          <div class="overlay"><h4>Crowded Bazaar – B&W</h4><p>Street • 2023</p></div>
+        </button>
+        <button class="gallery-item" data-category="street">
+          <img src="images/Random_3.JPG" alt="City Lights Reflection" loading="lazy">
+          <div class="overlay"><h4>City Lights Reflection</h4><p>Street • 2023</p></div>
+        </button>
+        <button class="gallery-item" data-category="street">
+          <img src="images/Random_4.JPG" alt="Rainy Night Streets" loading="lazy">
+          <div class="overlay"><h4>Rainy Night Streets</h4><p>Street • 2023</p></div>
+        </button>
+        <button class="gallery-item" data-category="street">
+          <img src="images/Random_5.JPG" alt="Market Lane Glow" loading="lazy">
+          <div class="overlay"><h4>Market Lane Glow</h4><p>Street • 2023</p></div>
+        </button>
+
+        <!-- Portraits -->
+        <button class="gallery-item" data-category="portraits">
+          <img src="images/Pet.jpg" alt="Gentle Companion" loading="lazy">
+          <div class="overlay"><h4>Gentle Companion</h4><p>Portrait • 2024</p></div>
+        </button>
+
+        <!-- Nature -->
+        <button class="gallery-item" data-category="nature">
+          <img src="images/Random_1.jpg" alt="Silhouetted Trees" loading="lazy">
+          <div class="overlay"><h4>Silhouetted Trees</h4><p>Nature • 2024</p></div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="connect" class="section bg-[var(--card-bg)]">
+    <div class="container">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="section-title">Let's Create Together</h2>
+        <div class="divider"></div>
+        <p class="text-lg text-[var(--muted)] max-w-2xl mx-auto">Ready to capture your moments? Tell me what you have in mind.</p>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Form -->
+        <div data-aos="fade-right">
+          <form id="contactForm" action="https://formsubmit.co/ffd0d42c2afc6cab7186b02378112a17" method="POST" class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="form-group">
+                <input type="text" id="firstName" name="firstName" class="form-input peer" required>
+                <label for="firstName" class="form-label">First Name</label>
+              </div>
+              <div class="form-group">
+                <input type="text" id="lastName" name="lastName" class="form-input peer" required>
+                <label for="lastName" class="form-label">Last Name</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="email" id="email" name="email" class="form-input peer" required>
+              <label for="email" class="form-label">Email Address</label>
+            </div>
+
+            <div class="form-group">
+              <input type="tel" id="phone" name="phone" class="form-input peer" pattern="^[0-9\-\+\s\(\)]{7,15}$">
+              <label for="phone" class="form-label">Phone Number</label>
+            </div>
+
+            <div class="form-group">
+              <textarea id="message" name="message" rows="5" class="form-input peer" minlength="10" required></textarea>
+              <label for="message" class="form-label">Tell me about your project</label>
+            </div>
+
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="http://localhost/thank-you.html">
+
+            <button type="submit" class="btn btn-primary w-full">
+              <i class="fas fa-paper-plane mr-2"></i> Send Message
+            </button>
+
+            <p id="formSuccess" class="hidden text-green-500 font-semibold mt-3">Thanks! I’ll get back to you within 24 hours.</p>
+            <p id="formError" class="hidden text-red-500 font-semibold mt-3">Something went wrong. Please try again.</p>
+          </form>
+        </div>
+
+        <!-- Info -->
+        <div data-aos="fade-left">
+          <div class="space-y-6">
+            <div class="info">
+              <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div><h4>Studio</h4><p>Mandsaur, Madhya Pradesh, IN 458001</p></div>
+            </div>
+            <div class="info">
+              <div class="info-icon"><i class="fas fa-phone"></i></div>
+              <div><h4>Phone</h4><p>+91 9644679988</p></div>
+            </div>
+            <div class="info">
+              <div class="info-icon"><i class="fas fa-envelope"></i></div>
+              <div><h4>Email</h4><p>kaushalmalvi412@gmail.com</p></div>
+            </div>
+          </div>
+
+          <div class="mt-10">
+            <h4 class="font-semibold mb-4">Follow My Work</h4>
+            <div class="flex gap-3">
+              <a href="https://instagram.com/k4ushal.06" target="_blank" class="social"><i class="fab fa-instagram"></i></a>
+              <a href="https://linkedin.com/in/kaushalmalvi/" target="_blank" class="social"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://twitter.com/_kaushalmalvi_" target="_blank" class="social"><i class="fab fa-twitter"></i></a>
+              <a href="mailto:kaushalmalvi412@gmail.com" target="_blank" class="social"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-12">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <h3 class="font-display font-bold text-2xl mb-4">KAUSHAL MALVI</h3>
+          <p class="text-gray-400">Professional photographer specializing in portraits, street, and events.</p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#home" class="hover:text-white">Home</a></li>
+            <li><a href="#about" class="hover:text-white">About</a></li>
+            <li><a href="#services" class="hover:text-white">Services</a></li>
+            <li><a href="#portfolio" class="hover:text-white">Portfolio</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-6 text-center text-gray-400 text-sm">© 2026 Kaushal Malvi Photography. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- Toast -->
+  <div id="toast" class="toast hidden">
+    <div id="toastText">Saved.</div>
+    <button id="toastClose" aria-label="Close toast">&times;</button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
