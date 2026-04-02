@@ -1,7 +1,5 @@
-/* AOS init */
 AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
 
-/* Navbar shrink on scroll + progress bar */
 const navbar = document.getElementById('navbar');
 const progressBar = document.getElementById('progressBar');
 window.addEventListener('scroll', () => {
@@ -11,7 +9,6 @@ window.addEventListener('scroll', () => {
   progressBar.style.width = Math.min(100, (y / max) * 100) + '%';
 }, { passive: true });
 
-/* Mobile menu */
 const menuBtn = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 if (menuBtn) {
@@ -24,7 +21,6 @@ document.querySelectorAll('#mobileMenu a').forEach(a => a.addEventListener('clic
   mobileMenu.classList.add('hidden'); menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
 }));
 
-/* Smooth scroll */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
     const id = anchor.getAttribute('href');
@@ -37,20 +33,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-/* Preloader */
 window.addEventListener('load', () => {
   const pre = document.getElementById('preloader');
   if (pre) pre.style.display = 'none';
 });
 
-/* Back to top */
 const backToTop = document.getElementById('backToTop');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 350) backToTop.classList.add('show'); else backToTop.classList.remove('show');
 }, { passive: true });
 backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-/* Counters */
 function animateCounters() {
   document.querySelectorAll('.stat-number').forEach(counter => {
     const target = parseInt(counter.getAttribute('data-count'), 10);
@@ -73,7 +66,6 @@ const statsObserver = new IntersectionObserver((entries, obs) => {
 const anyStat = document.querySelector('.stat-number');
 if (anyStat) statsObserver.observe(anyStat.parentElement.parentElement);
 
-/* Gallery filtering */
 const filterButtons = document.querySelectorAll('.filter-btn');
 const items = document.querySelectorAll('.gallery-item');
 filterButtons.forEach(btn => btn.addEventListener('click', () => {
@@ -91,7 +83,6 @@ filterButtons.forEach(btn => btn.addEventListener('click', () => {
   });
 }));
 
-/* Modal (reuse the new clean modal) */
 let modal;
 function ensureModal() {
   if (modal) return modal;
@@ -133,7 +124,6 @@ function closeModal() {
 }
 items.forEach(it => it.addEventListener('click', () => openModalFrom(it)));
 
-/* Lazy loading observer (progressive) */
 if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver((entries, ob) => {
     entries.forEach(entry => {
@@ -149,7 +139,6 @@ if ('IntersectionObserver' in window) {
   document.querySelectorAll('img[loading="lazy"]').forEach(img => io.observe(img));
 }
 
-/* Toast helpers */
 const toast = document.getElementById('toast');
 const toastText = document.getElementById('toastText');
 const toastClose = document.getElementById('toastClose');
@@ -160,7 +149,6 @@ function showToast(text, timeout = 2500) {
   toastClose.onclick = () => { toast.classList.add('hidden'); clearTimeout(t); };
 }
 
-/* Forms (AJAX) */
 function ajaxForm(form, successCb, errorCb) {
   form.addEventListener('submit', (e) => {
     e.preventDefault();

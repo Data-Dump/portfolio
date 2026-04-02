@@ -1,4 +1,3 @@
-/* ── Tokens ── */
 :root {
   --bg:       #0a0908;
   --bg2:      #0f0e0c;
@@ -25,7 +24,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Noise overlay ── */
 body::before {
   content: '';
   position: fixed; inset: 0; pointer-events: none; z-index: 0;
@@ -33,7 +31,6 @@ body::before {
   opacity: 0.5;
 }
 
-/* ── Nav ── */
 .navbar {
   background: transparent;
   transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
@@ -65,7 +62,6 @@ body::before {
 .nav-link:hover { color: var(--cream); }
 .nav-link:hover::after { width: 100%; }
 
-/* ── Hero ── */
 .hero-section { position: relative; }
 .hero-bg { filter: brightness(0.45) saturate(0.6); }
 .hero-gradient {
@@ -88,7 +84,6 @@ body::before {
   margin-top: 0.75rem;
 }
 
-/* ── Buttons ── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -120,7 +115,6 @@ body::before {
   transform: translateY(-2px);
 }
 
-/* ── Layout ── */
 .section { padding: 6rem 0; position: relative; z-index: 1; }
 .container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
 .section-title {
@@ -137,10 +131,8 @@ body::before {
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
-/* ── Section BG alternation ── */
 .section.alt { background: var(--bg2); }
 
-/* ── Cards (services) ── */
 .card {
   background: var(--card-bg);
   border: 1px solid var(--border);
@@ -168,7 +160,6 @@ body::before {
 .card h3 { font-size: 1.05rem; font-weight: 700; color: var(--cream); margin-bottom: 0.5rem; }
 .card p  { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
 
-/* ── Skills ── */
 .skill { display: grid; grid-template-columns: 1fr auto; gap: 0.4rem 0.75rem; align-items: center; }
 .skill > span:first-child { font-size: 0.85rem; color: var(--text); }
 .skill > span:last-of-type { font-size: 0.85rem; color: var(--gold); font-weight: 600; }
@@ -185,12 +176,10 @@ body::before {
   border-radius: 999px;
 }
 
-/* ── Stats ── */
 .stat { text-align: center; }
 .stat-number { display: block; font-size: 2.2rem; font-weight: 800; color: var(--gold); line-height: 1; }
 .stat p { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 0.3rem; }
 
-/* ── Gallery ── */
 .gallery-grid {
   columns: 3;
   column-gap: 1rem;
@@ -231,7 +220,6 @@ body::before {
 .gallery-item .overlay h4 { color: var(--cream); font-size: 0.9rem; font-weight: 600; line-height: 1.3; }
 .gallery-item .overlay p  { color: var(--gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.2rem; }
 
-/* ── Filter buttons ── */
 .filter-btn {
   padding: 0.45rem 1.1rem;
   border: 1px solid var(--border);
@@ -252,7 +240,6 @@ body::before {
   border-color: var(--gold);
 }
 
-/* ── Contact form ── */
 .form-group { position: relative; }
 .form-input {
   width: 100%;
@@ -282,7 +269,6 @@ textarea.form-input:not(:placeholder-shown) + .form-label {
 }
 textarea.form-input { resize: vertical; min-height: 130px; }
 
-/* ── Contact info ── */
 .info { display: flex; gap: 1rem; align-items: flex-start; }
 .info-icon {
   flex-shrink: 0;
@@ -296,7 +282,6 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 .info h4 { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem; }
 .info p  { color: var(--cream); font-size: 0.9rem; }
 
-/* ── Socials ── */
 .social {
   display: grid; place-items: center;
   width: 40px; height: 40px;
@@ -307,7 +292,6 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 }
 .social:hover { color: var(--gold); border-color: rgba(201,168,76,0.45); transform: translateY(-3px); }
 
-/* ── Preloader ── */
 .loader { display: flex; gap: 0.5rem; }
 .loader span {
   width: 8px; height: 8px; border-radius: 50%;
@@ -321,7 +305,6 @@ textarea.form-input { resize: vertical; min-height: 130px; }
   30% { transform: translateY(-10px); }
 }
 
-/* ── Back to top ── */
 .back-to-top {
   position: fixed; right: 1.25rem; bottom: 1.25rem;
   width: 44px; height: 44px; border-radius: 50%;
@@ -334,7 +317,6 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 }
 .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(-4px); }
 
-/* ── Toast ── */
 .toast {
   position: fixed; left: 50%; bottom: 24px;
   transform: translateX(-50%);
@@ -348,7 +330,6 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 .toast.hidden { display: none; }
 .toast button { background: transparent; border: none; color: var(--muted); font-size: 1.1rem; cursor: pointer; }
 
-/* ── Profile image ── */
 .profile-img {
   border-radius: 16px;
   border: 1px solid var(--border);
@@ -357,10 +338,8 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 }
 .profile-img:hover { filter: brightness(1) saturate(1); }
 
-/* ── Utilities ── */
 .font-display { font-family: 'Playfair Display', serif; }
 
-/* ── Responsive ── */
 @media (max-width: 768px) {
   .section { padding: 4rem 0; }
 }

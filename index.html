@@ -39,7 +39,6 @@
             position: relative;
         }
 
-        /* ─── Ambient Orbs ─── */
         .orb {
             position: fixed;
             border-radius: 50%;
@@ -71,7 +70,6 @@
             to { opacity: 1; }
         }
 
-        /* ─── Noise Texture Overlay ─── */
         body::before {
             content: '';
             position: fixed;
@@ -82,7 +80,6 @@
             opacity: 0.4;
         }
 
-        /* ─── Grid Lines ─── */
         .grid-lines {
             position: fixed;
             inset: 0;
@@ -94,7 +91,6 @@
             background-size: 80px 80px;
         }
 
-        /* ─── Layout ─── */
         .wrapper {
             position: relative;
             z-index: 2;
@@ -113,7 +109,6 @@
             text-align: center;
         }
 
-        /* ─── Header Label ─── */
         .label {
             font-family: 'Inter', sans-serif;
             font-size: 0.7rem;
@@ -131,7 +126,6 @@
             animation: fadeUp 0.7s ease 0.3s forwards;
         }
 
-        /* ─── Name ─── */
         .name {
             font-family: 'Playfair Display', serif;
             font-size: clamp(3.5rem, 10vw, 8rem);
@@ -152,7 +146,6 @@
             background-clip: text;
         }
 
-        /* ─── Divider ─── */
         .divider {
             width: 60px;
             height: 1px;
@@ -162,7 +155,6 @@
             animation: fadeIn 0.8s ease 0.9s forwards;
         }
 
-        /* ─── Bio ─── */
         .bio {
             font-size: clamp(0.9rem, 2vw, 1.05rem);
             font-weight: 300;
@@ -180,7 +172,6 @@
             color: #c8bfac;
         }
 
-        /* ─── Portfolio Cards ─── */
         .portfolio-links {
             display: flex;
             flex-direction: column;
@@ -283,7 +274,6 @@
             transform: translate(3px, -3px);
         }
 
-        /* ─── Social Icons ─── */
         .social-icons {
             display: flex;
             gap: 1rem;
@@ -331,7 +321,6 @@
             border-color: rgba(29,161,242,0.4);
         }
 
-        /* ─── Footer ─── */
         footer {
             position: relative;
             z-index: 2;
@@ -345,7 +334,6 @@
             animation: fadeIn 1s ease 1.8s forwards;
         }
 
-        /* ─── Cursor Glow ─── */
         .cursor-glow {
             position: fixed;
             width: 350px;
@@ -359,7 +347,6 @@
             will-change: left, top;
         }
 
-        /* ─── Animations ─── */
         @keyframes fadeUp {
             to { opacity: 1; transform: translateY(0); }
         }
@@ -367,7 +354,6 @@
             to { opacity: 1; }
         }
 
-        /* ─── Responsive ─── */
         @media (max-width: 600px) {
             .portfolio-links {
                 flex-direction: column;
@@ -384,7 +370,6 @@
 </head>
 <body>
 
-    <!-- Ambient -->
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
@@ -446,14 +431,12 @@
     </div>
 
     <script>
-        // Cursor glow follow
         const glow = document.getElementById('cursorGlow');
         document.addEventListener('mousemove', e => {
             glow.style.left = e.clientX + 'px';
             glow.style.top  = e.clientY + 'px';
         });
 
-        // Subtle orb movement on mouse
         const orb1 = document.querySelector('.orb-1');
         const orb3 = document.querySelector('.orb-3');
         document.addEventListener('mousemove', e => {

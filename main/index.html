@@ -26,14 +26,13 @@
             color: var(--text-light);
             scroll-behavior: smooth;
             overflow-x: hidden;
-            cursor: none; /* Hide default cursor */
+            cursor: none;
         }
         
         * {
-            cursor: none; /* Hide cursor on all elements */
+            cursor: none;
         }
         
-        /* Custom Cursor */
         .custom-cursor {
             position: fixed;
             width: 20px;
@@ -60,7 +59,6 @@
             border-color: var(--primary-gold);
         }
         
-        /* Cursor Dot */
         .cursor-dot {
             position: fixed;
             width: 6px;
@@ -78,7 +76,6 @@
             transform: translate(-50%, -50%) scale(1.5);
         }
         
-        /* Floating Particles */
         .cursor-particle {
             position: fixed;
             width: 4px;
@@ -102,7 +99,6 @@
             }
         }
         
-        /* Particle Trail */
         .particle-trail {
             position: fixed;
             width: 2px;
@@ -180,14 +176,13 @@
         
         .flip-card {
                 perspective: 1000px;
-                /* Remove fixed height */
                 height: auto;
         }
 
         .flip-card-inner {
                 position: relative;
                 width: 100%;
-                min-height: 300px; /* fallback min height */
+                min-height: 300px;
                 transition: transform 0.8s;
                 transform-style: preserve-3d;
         }
@@ -274,7 +269,6 @@
             50% { border-color: var(--primary-blue) }
         }
         
-        /* Scroll Progress Bar */
         .scroll-progress {
             position: fixed;
             top: 0;
@@ -285,7 +279,6 @@
             transition: width 0.1s ease;
         }
         
-        /* Loading Animation */
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
@@ -295,7 +288,6 @@
             animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
         
-        /* Improved Card Animations */
         @keyframes slideInUp {
             from {
                 opacity: 0;
@@ -311,14 +303,12 @@
             animation: slideInUp 0.6s ease-out forwards;
         }
         
-        /* Glassmorphism Effect */
         .glass {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* Improved Mobile Menu */
         .mobile-menu {
             max-height: 0;
             overflow: hidden;
@@ -330,7 +320,6 @@
             transition: max-height 0.5s ease-in;
         }
         
-        /* Smooth Fade In */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -340,19 +329,16 @@
             animation: fadeIn 0.8s ease-in;
         }
         
-        /* Hover Glow Effect */
         .hover-glow:hover {
             box-shadow: 0 0 30px rgba(37, 99, 235, 0.5);
             transition: box-shadow 0.3s ease;
         }
         
-        /* Improved Form Input Focus */
         input:focus, textarea:focus {
             transform: scale(1.02);
             transition: transform 0.2s ease;
         }
         
-        /* Certificate Card Styles */
         .certificate-card {
             position: relative;
             overflow: hidden;
@@ -383,7 +369,6 @@
             transform: scale(1.2) rotate(5deg);
         }
         
-        /* Certificate Modal */
         .certificate-modal {
             display: none;
             position: fixed;
@@ -495,7 +480,6 @@
             }
         }
         
-        /* Navbar Scroll Effect */
         nav {
             opacity: 0;
             visibility: hidden;
@@ -514,7 +498,6 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
         
-        /* Back to Top Button */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -562,7 +545,6 @@
             }
         }
         
-        /* New Hero Section Styles - Full Image/Video */
         .hero-full-image {
             width: 100%;
             height: 100vh;
@@ -580,7 +562,6 @@
             overflow: hidden;
         }
         
-        /* Ensure video maintains aspect ratio on all devices */
         video.hero-full-image {
             width: 100%;
             height: 100%;
@@ -590,7 +571,6 @@
             object-position: center;
         }
         
-        /* Logo Styles */
         .logo {
             width: 50px;
             height: 50px;
@@ -604,7 +584,6 @@
             font-size: 1.5rem;
         }
         
-        /* Nav Links */
         .nav-link {
             color: #d1d5db;
             text-decoration: none;
@@ -622,7 +601,6 @@
             color: #ffffff;
         }
         
-        /* Hero Background Gradient */
         .hero-bg-gradient {
             background: #000000;
             position: relative;
@@ -631,7 +609,6 @@
             margin: 0;
         }
         
-        /* Responsive adjustments for different screen sizes */
         @media (max-width: 1024px) {
             .hero-full-image {
                 height: 100vh;
@@ -666,7 +643,6 @@
             }
         }
         
-        /* Handle landscape orientation on mobile */
         @media (max-height: 500px) and (orientation: landscape) {
             .hero-full-image {
                 height: 100vh;
@@ -677,14 +653,11 @@
     </style>
 </head>
 <body class="min-h-screen">
-    <!-- Custom Cursor -->
     <div class="custom-cursor" id="customCursor"></div>
     <div class="cursor-dot" id="cursorDot"></div>
     
-    <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scrollProgress"></div>
     
-    <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 bg-black bg-opacity-90 backdrop-blur-md py-4 px-8 transition-all duration-300">
         <div class="container mx-auto flex justify-between items-center">
             <div class="text-2xl font-bold gradient-text">Kaushal Malvi</div>
@@ -707,7 +680,6 @@
                 </button>
             </div>
         </div>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="mobile-menu md:hidden">
             <div class="flex flex-col space-y-4 px-8 py-4 bg-black bg-opacity-95 backdrop-blur-md">
                 <a href="#home" class="text-gray-300 hover:text-white transition-colors py-2 hover:translate-x-2">Home</a>
@@ -725,16 +697,12 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="min-h-screen relative overflow-hidden hero-bg-gradient" style="padding-top: 0; margin: 0;">
         <div class="hero-image-wrapper">
-            <!-- Responsive video: Different videos for different devices -->
-            <!-- Create videos named: test.mp4 (desktop), test-tablet.mp4, test-mobile.mp4 -->
             <video id="heroVideo" class="hero-full-image" autoplay muted playsinline></video>
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="py-20 bg-gray-900">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-center mb-16 reveal">About <span class="gradient-text">Me</span></h2>
@@ -778,12 +746,10 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="py-20">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-center mb-16 reveal">My <span class="gradient-text">Skills</span></h2>
             <div class="grid md:grid-cols-2 gap-12">
-                <!-- Technical Skills -->
                 <div class="reveal">
                     <h3 class="text-2xl font-semibold mb-8 gold-text">Technical Expertise</h3>
                     <div class="space-y-6">
@@ -826,7 +792,6 @@
                     </div>
                 </div>
 
-                <!-- Soft Skills -->
                 <div class="reveal">
                     <h3 class="text-2xl font-semibold mb-8 gold-text">Professional Skills</h3>
                     <div class="space-y-6">
@@ -872,26 +837,22 @@
         </div>
     </section>
 
-        <!-- Education Section -->
     <section id="education" class="py-20 bg-gray-900">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-center mb-16 reveal">My <span class="gradient-text">Education</span></h2>
             <div class="space-y-8">
-                <!-- Education Entry 1: Karni International School -->
                 <div class="reveal bg-gray-800 p-6 rounded-2xl glow-border card-hover">
                     <h3 class="text-2xl font-semibold gold-text mb-2">Primary Education</h3>
                     <p class="text-gray-300 text-lg">Karni International School, Mandsaur (M.P.)</p>
                     <p class="text-gray-400 mt-2">April 2010 - March 2014</p>
                     <p class="text-gray-300 mt-4 leading-relaxed">Completed foundational schooling, developing early academic and social skills.</p>
                 </div>
-                <!-- Education Entry 2: St. Thomas Sr. Sec. School -->
                 <div class="reveal bg-gray-800 p-6 rounded-2xl glow-border card-hover">
                     <h3 class="text-2xl font-semibold gold-text mb-2">Secondary & Higher Secondary Education</h3>
                     <p class="text-gray-300 text-lg">St. Thomas Sr. Sec. School, Mandsaur (M.P.)</p>
                     <p class="text-gray-400 mt-2">2014 - 2025</p>
                     <p class="text-gray-300 mt-4 leading-relaxed">Completed higher secondary education with a strong academic foundation across diverse subjects.</p>
                 </div>
-                <!-- Education Entry 3: JK Lakshmipat University -->
                 <div class="reveal bg-gray-800 p-6 rounded-2xl glow-border card-hover">
                     <h3 class="text-2xl font-semibold gold-text mb-2">Bachelor's Degree, Computer Science</h3>
                     <p class="text-gray-300 text-lg">JK Lakshmipat University, Jaipur</p>
@@ -903,12 +864,10 @@
     </section>
 
 
-    <!-- Experience Section -->
     <section id="experience" class="py-20">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-center mb-16 reveal">My <span class="gradient-text">Experience</span></h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Experience 1: Founder & CEO – Kleanzol Pvt. Ltd. -->
                 <div class="flip-card reveal">
                     <div class="flip-card-inner bg-gray-800 p-6 rounded-2xl glow-border">
                         <div class="flip-card-front flex flex-col justify-center items-center text-center">
@@ -922,7 +881,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Experience 2: Co-Owner – Ashirwad Stationery -->
                 <div class="flip-card reveal">
                     <div class="flip-card-inner bg-gray-800 p-6 rounded-2xl glow-border">
                         <div class="flip-card-front flex flex-col justify-center items-center text-center">
@@ -936,7 +894,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Experience 3: Project Intern – BuzzFlick -->
                 <div class="flip-card reveal">
                     <div class="flip-card-inner bg-gray-800 p-6 rounded-2xl glow-border">
                         <div class="flip-card-front flex flex-col justify-center items-center text-center">
@@ -950,7 +907,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Experience 4: Web Editor – Freelancer.com -->
                 <div class="flip-card reveal">
                     <div class="flip-card-inner bg-gray-800 p-6 rounded-2xl glow-border">
                         <div class="flip-card-front flex flex-col justify-center items-center text-center">
@@ -964,7 +920,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Experience 5: Jr. Editor – Upwork -->
                 <div class="flip-card reveal">
                     <div class="flip-card-inner bg-gray-800 p-6 rounded-2xl glow-border">
                         <div class="flip-card-front flex flex-col justify-center items-center text-center">
@@ -979,7 +934,6 @@
                     </div>
                 </div>
 
-                <!-- Experience 6: Jr. Editor – DigiVibes -->
                 <div class="flip-card reveal">
                     <div class="flip-card-inner bg-gray-800 p-6 rounded-2xl glow-border">
                         <div class="flip-card-front flex flex-col justify-center items-center text-center">
@@ -997,12 +951,10 @@
         </div>
     </section>
 
-    <!-- Certificates Section -->
     <section id="certificates" class="py-20 bg-gray-900">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-center mb-16 reveal">My <span class="gradient-text">Certificates</span></h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-                <!-- Certificate 1: Python (Basic) -->
                 <div class="certificate-card reveal bg-gray-800 p-8 rounded-2xl glow-border hover-glow group"
                      data-image="images/certificates/python-basic.jpg"
                      data-title="Python (Basic)"
@@ -1021,7 +973,6 @@
                     </div>
                 </div>
 
-                <!-- Certificate 2: Problem Solving (Basic) -->
                 <div class="certificate-card reveal bg-gray-800 p-8 rounded-2xl glow-border hover-glow group"
                      data-image="images/certificates/problem-solving-basic.jpg"
                      data-title="Problem Solving (Basic)"
@@ -1040,7 +991,6 @@
                     </div>
                 </div>
 
-                <!-- Certificate 3: SQL (Basic) -->
                 <div class="certificate-card reveal bg-gray-800 p-8 rounded-2xl glow-border hover-glow group"
                      data-image="images/certificates/sql-basic.jpg"
                      data-title="SQL (Basic)"
@@ -1059,7 +1009,6 @@
                     </div>
                 </div>
 
-                <!-- Certificate 4: JavaScript (Basic) -->
                 <div class="certificate-card reveal bg-gray-800 p-8 rounded-2xl glow-border hover-glow group"
                      data-image="images/certificates/javascript-basic.jpg"
                      data-title="JavaScript (Basic)"
@@ -1078,7 +1027,6 @@
                     </div>
                 </div>
 				
-				<!-- Certificate 5: Java (Basic) -->
 				<div class="certificate-card reveal bg-gray-800 p-8 rounded-2xl glow-border hover-glow group"
                      data-image="images/certificates/java-basic.jpg"
                      data-title="Java (Basic)"
@@ -1101,7 +1049,6 @@
         </div>
     </section>
 
-    <!-- Certificate Modal -->
     <div id="certificateModal" class="certificate-modal">
         <div class="certificate-modal-content">
             <span class="certificate-modal-close" id="closeModal">&times;</span>
@@ -1121,7 +1068,6 @@
         </div>
     </div>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-20">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-center mb-16 reveal">Get In <span class="gradient-text">Touch</span></h2>
@@ -1166,7 +1112,6 @@
                 </div>
                 <div class="reveal">
                     <form id="contactForm" action="https://formsubmit.co/ffd0d42c2afc6cab7186b02378112a17" method="POST" class="bg-gray-800 p-8 rounded-2xl glow-border">
-                        <!-- Hidden inputs -->
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_template" value="table">
 
@@ -1202,7 +1147,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-black py-8 text-center">
         <div class="container mx-auto px-6">
             <p class="text-gray-400">© 2026 Kaushal Malvi | All rights reserved</p>
@@ -1223,13 +1167,11 @@
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
     <button id="backToTop" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
     <script>
-        // Scroll Progress Bar
         function updateScrollProgress() {
             const scrollProgress = document.getElementById('scrollProgress');
             const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -1237,42 +1179,35 @@
             scrollProgress.style.width = scrolled + '%';
         }
 
-        // Navbar scroll effect
         function updateNavbar() {
             const navbar = document.getElementById('navbar');
             const homeSection = document.getElementById('home');
             const homeSectionHeight = homeSection ? homeSection.offsetHeight : 0;
             
-            // Show/hide navbar based on scroll position
             if (window.scrollY > homeSectionHeight - 100) {
-                // Scrolled past homepage - show navbar
                 navbar.classList.add('visible');
                 navbar.classList.add('scrolled');
             } else {
-                // On homepage - hide navbar
                 navbar.classList.remove('visible');
                 navbar.classList.remove('scrolled');
             }
             
-            // Update active nav link based on scroll position
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-link');
             
             let current = '';
-            const scrollPosition = window.scrollY + 100; // Offset for better detection
+            const scrollPosition = window.scrollY + 100;
             
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
                 const sectionBottom = sectionTop + sectionHeight;
                 
-                // Check if we're in this section
                 if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                     current = section.getAttribute('id');
                 }
             });
             
-            // Special case: if at top of page, show home as active
             if (window.scrollY < 100) {
                 current = 'home';
             }
@@ -1280,14 +1215,12 @@
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 const linkHref = link.getAttribute('href');
-                // Match the link href to the current section
                 if (linkHref === `#${current}`) {
                     link.classList.add('active');
                 }
             });
         }
 
-        // Reveal on scroll animation
         function revealElements() {
             const elements = document.querySelectorAll('.reveal');
             elements.forEach(element => {
@@ -1296,7 +1229,6 @@
                 if (elementTop < window.innerHeight - elementVisible) {
                     element.classList.add('active');
                     
-                    // Animate skill bars
                     if (element.querySelector('.skill-bar')) {
                         const skillBars = element.querySelectorAll('.skill-bar');
                         skillBars.forEach(bar => {
@@ -1310,13 +1242,11 @@
             });
         }
 
-        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    // Close mobile menu if open
                     const mobileMenu = document.getElementById('mobile-menu');
                     const menuBtn = document.getElementById('menu-btn');
                     if (mobileMenu && mobileMenu.classList.contains('active')) {
@@ -1336,7 +1266,6 @@
             });
         });
 
-        // Parallax effect for hero section
         function updateParallax() {
             const scrolled = window.pageYOffset;
             const parallax = document.querySelector('#home');
@@ -1345,7 +1274,6 @@
             }
         }
 
-        // Back to Top Button
         const backToTopButton = document.getElementById('backToTop');
         
         function updateBackToTop() {
@@ -1363,7 +1291,6 @@
             });
         });
 
-        // Initialize animations
         window.addEventListener('scroll', () => {
             revealElements();
             updateParallax();
@@ -1372,27 +1299,21 @@
             updateBackToTop();
         });
 
-        // Responsive Video Loading - Loads different videos based on screen size
         function loadResponsiveVideo() {
             const heroVideo = document.getElementById('heroVideo');
             if (!heroVideo) return;
             
             const width = window.innerWidth;
-            let videoSrc = './images/test.mp4'; // Default desktop video
+            let videoSrc = './images/test.mp4';
             
             if (width <= 768) {
-                // Mobile
                 videoSrc = './images/test-mobile.mp4';
             } else if (width <= 1024) {
-                // Tablet
                 videoSrc = './images/test-tablet.mp4';
             }
-            // Desktop uses default (test.mp4)
             
-            // Set the video source
             heroVideo.src = videoSrc;
             
-            // Also handle window resize to switch videos if needed
             let resizeTimer;
             let currentVideoSrc = videoSrc;
             window.addEventListener('resize', () => {
@@ -1407,7 +1328,6 @@
                         newVideoSrc = './images/test-tablet.mp4';
                     }
                     
-                    // Only change if different
                     if (currentVideoSrc !== newVideoSrc) {
                         currentVideoSrc = newVideoSrc;
                         heroVideo.src = newVideoSrc;
@@ -1422,10 +1342,8 @@
             updateNavbar();
             updateBackToTop();
             
-            // Load responsive video based on screen size
             loadResponsiveVideo();
             
-            // Initialize typewriter effect
             const typewriter = document.querySelector('.typewriter');
             if (typewriter) {
                 setTimeout(() => {
@@ -1437,7 +1355,6 @@
             }
         });
 
-        // Improved Mobile menu toggle
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         
@@ -1451,7 +1368,6 @@
                 }
             });
             
-            // Close menu when clicking outside
             document.addEventListener('click', (e) => {
                 if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
                     mobileMenu.classList.remove('active');
@@ -1464,7 +1380,6 @@
         });
         }
 
-        // Improved Contact Form
         const contactForm = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
         const submitText = document.getElementById('submitText');
@@ -1475,7 +1390,6 @@
                             event.preventDefault();
                             const form = event.target;
                 
-                // Show loading state
                 submitText.classList.add('hidden');
                 submitLoader.classList.remove('hidden');
                 submitBtn.disabled = true;
@@ -1495,7 +1409,6 @@
                         });
         }
 
-        // Add intersection observer for better performance
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -1509,10 +1422,8 @@
             });
         }, observerOptions);
 
-        // Observe all reveal elements
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Certificate Modal Functionality
         const certificateModal = document.getElementById('certificateModal');
         const certificateImage = document.getElementById('certificateImage');
         const certificateTitle = document.getElementById('certificateTitle');
@@ -1520,7 +1431,6 @@
         const closeModal = document.getElementById('closeModal');
         const certificateCards = document.querySelectorAll('.certificate-card');
 
-        // Open modal when certificate card is clicked
         certificateCards.forEach(card => {
             card.addEventListener('click', function() {
                 const imageSrc = this.getAttribute('data-image');
@@ -1532,7 +1442,6 @@
                 certificateImage.alt = title;
                 certificateTitle.textContent = title;
                 
-                // Set subtitle if available
                 const subtitleElement = document.getElementById('certificateSubtitle');
                 if (subtitle) {
                     subtitleElement.textContent = subtitle;
@@ -1542,13 +1451,11 @@
                     subtitleElement.classList.add('hidden');
                 }
                 
-                // Show/hide link button and explanation based on whether link exists
                 const certificateNoLink = document.getElementById('certificateNoLink');
                 if (link && link.trim() !== '') {
                     certificateLink.href = link;
                     certificateLink.classList.remove('hidden');
                     certificateNoLink.classList.add('hidden');
-                    // Update button text based on link type
                     const linkText = document.getElementById('certificateLinkText');
                     if (link.includes('hackerrank.com')) {
                         linkText.textContent = 'View on HackerRank';
@@ -1561,42 +1468,37 @@
                 }
                 
                 certificateModal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                document.body.style.overflow = 'hidden';
             });
         });
 
-        // Close modal
         function closeCertificateModal() {
             certificateModal.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
+            document.body.style.overflow = '';
         }
 
         closeModal.addEventListener('click', closeCertificateModal);
 
-        // Ensure certificate link opens properly
         certificateLink.addEventListener('click', function(e) {
-            e.stopPropagation(); // Prevent event from bubbling to modal
+            e.stopPropagation();
             const href = this.getAttribute('href');
             if (href && href !== '#' && href.trim() !== '') {
                 window.open(href, '_blank', 'noopener,noreferrer');
             }
         });
 
-        // Close modal when clicking outside the content
         certificateModal.addEventListener('click', function(e) {
             if (e.target === certificateModal) {
                 closeCertificateModal();
             }
         });
 
-        // Close modal with Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && certificateModal.classList.contains('active')) {
                 closeCertificateModal();
             }
         });
 
-        // Custom Cursor with Floating Particles
         const cursor = document.getElementById('customCursor');
         const cursorDot = document.getElementById('cursorDot');
         let mouseX = 0;
@@ -1607,19 +1509,16 @@
         let dotY = 0;
         let lastParticleTime = 0;
         let lastTrailTime = 0;
-        const particleInterval = 50; // Create particle every 50ms
-        const trailInterval = 20; // Create trail particle every 20ms
+        const particleInterval = 50;
+        const trailInterval = 20;
 
-        // Check if device is touch-enabled (mobile/tablet)
         const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
         if (!isTouchDevice) {
-            // Track mouse position
             document.addEventListener('mousemove', (e) => {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
                 
-                // Create trail particles
                 const now = Date.now();
                 if (now - lastTrailTime > trailInterval) {
                     createTrailParticle(mouseX, mouseY);
@@ -1627,21 +1526,17 @@
                 }
             });
 
-            // Smooth cursor movement with easing
             function animateCursor() {
-                // Main cursor with lag
                 cursorX += (mouseX - cursorX) * 0.1;
                 cursorY += (mouseY - cursorY) * 0.1;
                 cursor.style.left = cursorX + 'px';
                 cursor.style.top = cursorY + 'px';
 
-                // Dot cursor with less lag
                 dotX += (mouseX - dotX) * 0.3;
                 dotY += (mouseY - dotY) * 0.3;
                 cursorDot.style.left = dotX + 'px';
                 cursorDot.style.top = dotY + 'px';
 
-                // Create floating particles periodically
                 const now = Date.now();
                 if (now - lastParticleTime > particleInterval) {
                     createFloatingParticle(cursorX, cursorY);
@@ -1652,7 +1547,6 @@
             }
             animateCursor();
 
-            // Hover effects
             const hoverElements = document.querySelectorAll('a, button, input, textarea, .card-hover, .flip-card');
             hoverElements.forEach(el => {
                 el.addEventListener('mouseenter', () => {
@@ -1665,7 +1559,6 @@
                 });
             });
 
-            // Click effect
             document.addEventListener('mousedown', () => {
                 cursor.classList.add('click');
                 cursorDot.classList.add('click');
@@ -1676,19 +1569,16 @@
                 cursorDot.classList.remove('click');
             });
 
-            // Create floating particle
             function createFloatingParticle(x, y) {
                 const particle = document.createElement('div');
                 particle.className = 'cursor-particle';
                 
-                // Random offset
                 const offsetX = (Math.random() - 0.5) * 30;
                 const offsetY = (Math.random() - 0.5) * 30;
                 
                 particle.style.left = (x + offsetX) + 'px';
                 particle.style.top = (y + offsetY) + 'px';
                 
-                // Random color from theme
                 const colors = ['#2563eb', '#8b5cf6', '#fbbf24', '#60a5fa', '#a78bfa'];
                 const randomColor = colors[Math.floor(Math.random() * colors.length)];
                 particle.style.background = randomColor;
@@ -1696,13 +1586,11 @@
                 
                 document.body.appendChild(particle);
                 
-                // Remove after animation
                 setTimeout(() => {
                     particle.remove();
                 }, 1500);
             }
 
-            // Create trail particle
             function createTrailParticle(x, y) {
                 const trail = document.createElement('div');
                 trail.className = 'particle-trail';
